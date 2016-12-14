@@ -24393,10 +24393,12 @@
 	var Router = __webpack_require__(159);
 	var Route = Router.Route;
 	var IndexRoute = Router.IndexRoute;
+	var profile = __webpack_require__(211);
 
 	module.exports = React.createElement(
 	    Route,
 	    { path: '/', component: Main },
+	    React.createElement(Route, { path: 'profile/:username', component: profile }),
 	    React.createElement(IndexRoute, { component: Home })
 	);
 
@@ -24463,6 +24465,43 @@
 	    }
 	});
 	module.exports = Home;
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * Created by dhiraj.kumar on 14/12/2016.
+	 */
+	var React = __webpack_require__(1);
+	var Router = __webpack_require__(159);
+
+	var profile = React.createClass({
+	    displayName: 'profile',
+
+	    getInitialState: function getInitialState() {
+	        return {
+	            notes: [],
+	            bio: {},
+	            repos: []
+	        };
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            { className: 'row' },
+	            React.createElement(
+	                'div',
+	                { className: 'col-md-4' },
+	                'User Profile Component'
+	            )
+	        );
+	    }
+	});
+
+	module.exports = profile;
 
 /***/ }
 /******/ ]);
