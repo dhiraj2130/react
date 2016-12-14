@@ -7,8 +7,10 @@ var Home = React.createClass({
     render: function(){
         return (
             <h2 className="text-center" >
-                search by usernae Above
+                search by username Above
+
             </h2>
         )
     }
 })
+module.exports = Home;
