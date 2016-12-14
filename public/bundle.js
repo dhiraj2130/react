@@ -24477,6 +24477,9 @@
 	 */
 	var React = __webpack_require__(1);
 	var Router = __webpack_require__(159);
+	var Repos = __webpack_require__(212);
+	var UserProfile = __webpack_require__(213);
+	var Notes = __webpack_require__(214);
 
 	var profile = React.createClass({
 	    displayName: 'profile',
@@ -24484,24 +24487,125 @@
 	    getInitialState: function getInitialState() {
 	        return {
 	            notes: [],
-	            bio: {},
+	            bio: {
+	                name: 'jake bio name  '
+	            },
 	            repos: []
 	        };
 	    },
 	    render: function render() {
+	        console.log(this.props);
 	        return React.createElement(
 	            'div',
 	            { className: 'row' },
 	            React.createElement(
 	                'div',
 	                { className: 'col-md-4' },
-	                'User Profile Component'
+	                React.createElement(UserProfile, { username: this.props.params.username, bio: this.state.bio })
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'col-md-4' },
+	                React.createElement(Repos, { repos: '{this.state.repos}' })
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'col-md-4' },
+	                React.createElement(Notes, { notes: '{this.state.notes}' })
 	            )
 	        );
 	    }
 	});
 
 	module.exports = profile;
+
+/***/ },
+/* 212 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * Created by dhiraj.kumar on 14/12/2016.
+	 */
+	var React = __webpack_require__(1);
+
+	var Repos = React.createClass({
+	    displayName: 'Repos',
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            ' REPOSS '
+	        );
+	    }
+	});
+
+	module.exports = Repos;
+
+/***/ },
+/* 213 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * Created by dhiraj.kumar on 14/12/2016.
+	 */
+	var React = __webpack_require__(1);
+
+	var UserProfile = React.createClass({
+	    displayName: 'UserProfile',
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement(
+	                'p',
+	                null,
+	                'user name :',
+	                this.props.username,
+	                ' '
+	            ),
+	            React.createElement(
+	                'p',
+	                null,
+	                'BIO :',
+	                this.props.bio.name,
+	                ' '
+	            )
+	        );
+	    }
+	});
+
+	module.exports = UserProfile;
+
+/***/ },
+/* 214 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * Created by dhiraj.kumar on 14/12/2016.
+	 */
+	var React = __webpack_require__(1);
+
+	var Notes = React.createClass({
+	    displayName: 'Notes',
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            ' Notes '
+	        );
+	    }
+	});
+
+	module.exports = Notes;
 
 /***/ }
 /******/ ]);
